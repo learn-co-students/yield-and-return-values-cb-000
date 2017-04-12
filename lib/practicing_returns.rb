@@ -1,12 +1,15 @@
 require 'pry'
 
-def hello(array)
+def collect(array)
   i = 0
-  while i < array.length
-    yield(array[i])
+  x = array.length
+  collect = []
+  while i < x
+    #binding.pry
+    collect << yield array[i]
     i += 1
   end
+  collect # return value of type Array of the #hello method
 end
 
-
-hello(["Tim", "Tom", "Jim"]) { |name| puts "Hi, #{name}" }
+collect(["Tim", "Tom", "Jim"]) {|name| "Hi, #{name}"}
