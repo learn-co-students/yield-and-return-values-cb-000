@@ -2,11 +2,13 @@ require 'pry'
 
 def hello(array)
   i = 0
+  names = []
   while i < array.length
-    yield(array[i])
+    names << yield(array[i])
     i += 1
   end
+  names
 end
 
-
-hello(["Tim", "Tom", "Jim"]) { |name| puts "Hi, #{name}" }
+binding.pry
+hello(["Tim", "Tom", "Jim"]) { |name|  "Hi, #{name}" }
